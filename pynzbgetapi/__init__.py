@@ -52,7 +52,7 @@ class NZBGetAPI:
         try:
             # Internal method to transalte xmlrpc exceptions to library ones.
             return method_call()
-        except xmlrpc.client.Error as err:
+        except (xmlrpc.client.Error, ConnectionError) as err:
             raise NZBGetAPIException(str(err)) from None
 
     def version(self):
