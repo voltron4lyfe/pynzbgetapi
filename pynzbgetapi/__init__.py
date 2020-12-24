@@ -13,6 +13,7 @@ _LOGGER = logging.getLogger(__name__)
 
 class NZBGetAPIException(Exception):
     """Top level module exception."""
+
     pass
 
 
@@ -22,6 +23,7 @@ class NZBGetAPI:
     def __init__(
         self,
         host,
+        urlbase="",
         username=None,
         password=None,
         secure=False,
@@ -33,11 +35,9 @@ class NZBGetAPI:
         ssl = "s" if secure else ""
 
         if username is not None and password is not None:
-            url = (
-                f"http{ssl}://{quote(username)}:{quote(password)}@{host}:{port}/xmlrpc"
-            )
+            url = f"http{ssl}://{quote(username)}:{quote(password)}@{host}:{port}{urlbase}/xmlrpc"
         else:
-            url = f"http{ssl}://{host}:{port}/xmlrpc"
+            url = f"http{ssl}://{host}:{port}{urlbase}/xmlrpc"
 
         if secure and not verify_certificate:
             ssl_ctx = ssl.create_default_context()
