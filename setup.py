@@ -26,6 +26,6 @@ setup(
     name='pynzbgetapi',
     packages=find_packages(include=['pynzbgetapi']),
     url='https://github.com/holiestofhandgrenades/pynzbgetapi',
-    version='0.2.0',
+    version='0.3.0',
     zip_safe=True,
 )
