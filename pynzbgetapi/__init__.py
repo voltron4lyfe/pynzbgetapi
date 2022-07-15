@@ -35,7 +35,7 @@ class NZBGetAPI:
         ssl = "s" if secure else ""
 
         if username is not None and password is not None:
-            url = f"http{ssl}://{quote(username)}:{quote(password)}@{host}:{port}{urlbase}/xmlrpc"
+            url = f"http{ssl}://{host}:{port}/{quote(username)}:{quote(password)}{urlbase}/xmlrpc"
         else:
             url = f"http{ssl}://{host}:{port}{urlbase}/xmlrpc"
 
