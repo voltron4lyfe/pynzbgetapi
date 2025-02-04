@@ -32,12 +32,12 @@ class NZBGetAPI:
     ):
         """Initialize NZBGet API and set headers needed later."""
 
-        ssl = "s" if secure else ""
+        http_mode = "s" if secure else ""
 
         if username is not None and password is not None:
-            url = f"http{ssl}://{host}:{port}/{quote(username)}:{quote(password)}{urlbase}/xmlrpc"
+            url = f"http{http_mode}://{host}:{port}/{quote(username)}:{quote(password)}{urlbase}/xmlrpc"
         else:
-            url = f"http{ssl}://{host}:{port}{urlbase}/xmlrpc"
+            url = f"http{http_mode}://{host}:{port}{urlbase}/xmlrpc"
 
         if secure and not verify_certificate:
             ssl_ctx = ssl.create_default_context()
