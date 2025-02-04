@@ -35,7 +35,7 @@ class NZBGetAPI:
         http_mode = "s" if secure else ""
 
         if username is not None and password is not None:
-            url = f"http{http_mode}://{host}:{port}/{quote(username)}:{quote(password)}{urlbase}/xmlrpc"
+            url = f"http{http_mode}://{quote(username)}:{quote(password)}@{host}:{port}{urlbase}/xmlrpc"
         else:
             url = f"http{http_mode}://{host}:{port}{urlbase}/xmlrpc"
 
